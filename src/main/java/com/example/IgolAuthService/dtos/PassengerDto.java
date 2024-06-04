@@ -1,5 +1,6 @@
 package com.example.IgolAuthService.dtos;
 
+import com.example.IgolAuthService.models.Passenger;
 import lombok.*;
 
 import java.util.Date;
@@ -22,5 +23,16 @@ public class PassengerDto {
     private String phoneNumber;
 
     private Date createdAt;
+
+    public static PassengerDto from(Passenger p) {
+        return PassengerDto.builder()
+                .id(p.getId().toString())
+                .name(p.getName())
+                .email(p.getEmail())
+                .password(p.getPassword())
+                .phoneNumber(p.getPhoneNumber())
+                .createdAt(p.getCreatedAt())
+                .build();
+    }
 
 }

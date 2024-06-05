@@ -3,6 +3,7 @@ package com.example.IgolAuthService.services;
 import com.example.IgolAuthService.helpers.AuthPassengerDetails;
 import com.example.IgolAuthService.models.Passenger;
 import com.example.IgolAuthService.repositories.PassengerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,11 +17,8 @@ import java.util.Optional;
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
 
-    private final PassengerRepository passengerRepository;
-
-    public UserDetailServiceImpl(PassengerRepository passengerRepository) {
-        this.passengerRepository = passengerRepository;
-    }
+    @Autowired
+    private PassengerRepository passengerRepository;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {

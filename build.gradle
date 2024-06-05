@@ -34,6 +34,8 @@ dependencies {
 	implementation 'org.flywaydb:flyway-mysql:8.4.4'
 	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
 	implementation 'org.springframework.boot:spring-boot-starter-security:3.3.0'
+	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
+	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.12.5'
 }
 
 tasks.named('test') {

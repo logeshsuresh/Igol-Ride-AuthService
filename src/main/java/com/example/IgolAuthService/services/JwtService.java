@@ -22,11 +22,12 @@ public class JwtService  implements CommandLineRunner {
     @Value("${jwt.secret}")
     private String SECRET;
 
-    /*
-    *
-    *  This method created a new JWT token based on the payload
-    *
-    */
+    /**
+     Generates a JWT token with the provided payload and username.
+     @param payload A map containing additional data to be included in the token.
+     @param username The username for whom the token is being generated.
+     @return The generated JWT token string.
+     */
     private String createToken(Map<String, Object> payload, String username) {
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + expiry * 1000L);

@@ -6,6 +6,8 @@ import com.example.IgolAuthService.dtos.PassengerDto;
 import com.example.IgolAuthService.dtos.PassengerSignupRequestDto;
 import com.example.IgolAuthService.services.AuthService;
 import com.example.IgolAuthService.services.JwtService;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -18,6 +20,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,9 +62,9 @@ public class AuthController {
         if (authentication.isAuthenticated()) {
             String jwtToken = jwtService.createToken(authRequestDto.getEmail());
             ResponseCookie cookie = ResponseCookie.from("JwtToken", jwtToken)
-                                    .httpOnly(true)
+                                    .httpOnly(false)
                                     .secure(false)
-                                    .maxAge(COOKIE_EXPIRY)
+                                    .maxAge(7L * 24 * COOKIE_EXPIRY)
                                     .path("/")
                                     .build();
             httpServletResponse.setHeader(HttpHeaders.SET_COOKIE, cookie.toString());
@@ -69,4 +72,13 @@ public class AuthController {
         }
         return new ResponseEntity<>("Unsuccessfull Auth", HttpStatus.BAD_REQUEST);
     }
+
+    @GetMapping("/validate")
+    public ResponseEntity<?> validate(HttpServletRequest httpServletRequest) {
+        for (Cookie cookie : httpServletRequest.getCookies()) {
+            System.out.println(cookie.getName() + " " + cookie.getValue());
+        }
+        return new ResponseEntity<>("Success", HttpStatus.OK);
+    }
+
 }

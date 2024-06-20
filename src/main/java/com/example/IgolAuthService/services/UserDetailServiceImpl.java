@@ -1,8 +1,8 @@
 package com.example.IgolAuthService.services;
 
 import com.example.IgolAuthService.helpers.AuthPassengerDetails;
-import com.example.IgolAuthService.models.Passenger;
 import com.example.IgolAuthService.repositories.PassengerRepository;
+import com.example.IgolEntityService.models.Passenger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

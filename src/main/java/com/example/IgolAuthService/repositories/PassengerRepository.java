@@ -1,6 +1,6 @@
 package com.example.IgolAuthService.repositories;
 
-import com.example.IgolAuthService.models.Passenger;
+import com.example.IgolEntityService.models.Passenger;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

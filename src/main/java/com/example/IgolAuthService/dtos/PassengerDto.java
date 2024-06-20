@@ -1,6 +1,6 @@
 package com.example.IgolAuthService.dtos;
 
-import com.example.IgolAuthService.models.Passenger;
+import com.example.IgolEntityService.models.Passenger;
 import lombok.*;
 
 import java.util.Date;

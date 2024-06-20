@@ -1,6 +1,6 @@
 package com.example.IgolAuthService.helpers;
 
-import com.example.IgolAuthService.models.Passenger;
+import com.example.IgolEntityService.models.Passenger;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

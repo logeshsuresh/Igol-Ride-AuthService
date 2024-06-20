@@ -2,7 +2,7 @@ package com.example.IgolAuthService.services;
 
 import com.example.IgolAuthService.dtos.PassengerDto;
 import com.example.IgolAuthService.dtos.PassengerSignupRequestDto;
-import com.example.IgolAuthService.models.Passenger;
+import com.example.IgolEntityService.models.Passenger;
 import com.example.IgolAuthService.repositories.PassengerRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
